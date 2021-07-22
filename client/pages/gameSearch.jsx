@@ -4,9 +4,33 @@ import React from 'react';
 export default class GameSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchTerm: '' };
+    this.state = { searchTerm: '', testSearch: 'street fighter' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  xhrTest() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.cheapshark.com/api/1.0/games?title=street-fighter');
+    xhr.setRequestHeader('token', 'abc123');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', function () {
+      // eslint-disable-next-line no-console
+      console.log(xhr.response);
+    });
+    xhr.send();
+  }
+
+  xhrTest2() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.cheapshark.com/api/1.0/games?title=' + this.state.testSearch);
+    xhr.setRequestHeader('token', 'abc123');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', function () {
+      // eslint-disable-next-line no-console
+      console.log(xhr.response);
+    });
+    xhr.send();
   }
 
   handleChange(event) {
@@ -20,6 +44,8 @@ export default class GameSearch extends React.Component {
   }
 
   render() {
+    // this.xhrTest();
+    this.xhrTest2();
     return (
       <div className="container">
         <h1>Frugal Frames</h1>
