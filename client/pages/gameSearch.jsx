@@ -33,6 +33,18 @@ export default class GameSearch extends React.Component {
     xhr.send();
   }
 
+  xhrSearchTerm() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://www.cheapshark.com/api/1.0/games?title=' + this.state.searchTerm);
+    xhr.setRequestHeader('token', 'abc123');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', function () {
+      // eslint-disable-next-line no-console
+      console.log(xhr.response);
+    });
+    xhr.send();
+  }
+
   handleChange(event) {
     this.setState({ searchTerm: event.target.value });
   }
@@ -40,12 +52,13 @@ export default class GameSearch extends React.Component {
   handleSubmit(event) {
     // eslint-disable-next-line no-console
     console.log('Term entered:', this.state.searchTerm);
+    this.xhrSearchTerm();
     event.preventDefault();
   }
 
   render() {
     // this.xhrTest();
-    this.xhrTest2();
+    // this.xhrTest2();
     return (
       <div className="container">
         <h1>Frugal Frames</h1>
