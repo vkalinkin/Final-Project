@@ -31,16 +31,13 @@ export default class GameSearch extends React.Component {
   }
 
   render() {
-    // console.log("results array from render()", this.state.resultsArray)
-    // console.log("props", this.props);
-
-    return this.state.isLoading
-      ? <div className="container">
+    return (
+      <div className="container">
         <h1>Frugal Frames</h1>
         <h2>Find deals on digital PC games!</h2>
         <div className="topOptions">
-          <h3>Find: </h3>
-          <h3>GAMES (SELECTED)</h3>
+          <h3>Find:</h3>
+          <h3>GAMES</h3>
           <h3>STORES</h3>
         </div>
         <h1>Temp: On Game Search Page</h1>
@@ -50,27 +47,9 @@ export default class GameSearch extends React.Component {
           <button>SEARCH</button>
         </form>
         <div>
-          Loading...
+          {this.state.isLoading ? 'isLoading' : <ResultsList results={this.state.resultsArray}></ResultsList>}
         </div>
       </div>
-      : <div className="container">
-        <h1>Frugal Frames</h1>
-        <h2>Find deals on digital PC games!</h2>
-        <div className="topOptions">
-          <h3>Find: </h3>
-          <h3>GAMES (SELECTED)</h3>
-          <h3>STORES</h3>
-        </div>
-        <h1>Temp: On Game Search Page</h1>
-        <a href="#">go back to home</a>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.searchTerm} onChange={this.handleChange}></input>
-          <button>SEARCH</button>
-        </form>
-        <div>
-          <ResultsList results={this.state.resultsArray}></ResultsList>
-        </div>
-      </div>;
-
+    );
   }
 }
