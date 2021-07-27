@@ -10,7 +10,27 @@ export default class GameSearch extends React.Component {
   }
 
   fetchReq() {
-    fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor)
+    let priceFloor;
+    if (!this.props.parentPriceFloor) {
+      priceFloor = '0';
+    } else {
+      priceFloor = this.props.parentPriceFloor;
+    }
+
+    let priceCeiling;
+    if (!this.props.parentPriceCeiling) {
+      priceCeiling = '60';
+    } else {
+      priceCeiling = this.props.parentPriceCeiling;
+    }
+    // const fetchURL = 'https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + '&upperPrice=' + this.props.parentPriceCeiling;
+    const fetchURL = 'https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + priceFloor + '&upperPrice=' + priceCeiling;
+
+    // fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + '&upperPrice=' + this.props.parentChangePriceCeiling)
+    // fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + 'upperPrice=' + this.props.parentPriceCeiling)
+    // console.log('fetchURL', fetchURL);
+    fetch(fetchURL)
+
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -43,6 +63,12 @@ export default class GameSearch extends React.Component {
   }
 
   handleSubmit(event) {
+    // if (!this.props.parentPriceFloor){
+    //   this.props.parentChangePriceFloor();
+    // }
+    // if (!this.props.parentPriceCeiling) {
+    //   this.props.parentChangePriceCeiling(60);
+    // }
     this.fetchReq();
     event.preventDefault();
   }
@@ -69,11 +95,11 @@ export default class GameSearch extends React.Component {
           </div>
           <div className = "row">
             <label htmlFor="priceFloorBox">Minimum Price:</label>
-            <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
+            <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange} min="0"></input>
           </div>
           <div className="row">
             <label htmlFor="priceCeilingBox">Maximum Price:</label>
-            <input type="number" id="priceCeilingBox" value={this.props.parentPriceCeiling} onChange={this.handlePriceCeilingChange}></input>
+            <input type="number" id="priceCeilingBox" value={this.props.parentPriceCeiling} onChange={this.handlePriceCeilingChange} min="1"></input>
           </div>
           <div className = "row">
             <button>SEARCH</button>

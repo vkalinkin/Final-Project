@@ -15,8 +15,8 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash),
       searchTerm: '',
-      priceFloor: '',
-      priceCeiling: '',
+      priceFloor: '0',
+      priceCeiling: '60',
       resultsArray: [],
       isLoading: true
     };
@@ -64,10 +64,16 @@ export default class App extends React.Component {
   }
 
   changePriceFloor(newPriceFloor) {
+    // if (!newPriceFloor){
+    //   newPriceFloor = '0';
+    // }
     this.setState({ priceFloor: newPriceFloor });
   }
 
   changePriceCeiling(newPriceCeiling) {
+    // if (!newPriceCeiling) {
+    //   newPriceCeiling = '60';
+    // }
     this.setState({ priceCeiling: newPriceCeiling });
   }
 
