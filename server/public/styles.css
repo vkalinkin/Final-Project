@@ -54,12 +54,6 @@
   color: black;
 }
 
-.gameSearchForm {
-  /* display: flex; */
-
-  /* justify-content: center; */
-}
-
 .resultsList {
   display: flex;
   flex-wrap: wrap;

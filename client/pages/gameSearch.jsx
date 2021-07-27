@@ -9,11 +9,9 @@ export default class GameSearch extends React.Component {
   }
 
   fetchReq() {
-    // fetch('https://www.cheapshark.com/api/1.0/games?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor)
     fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor)
       .then(response => {
         if (response.ok) {
-          // console.log('response in fetchReq:', response);
           return response.json();
         } else {
           throw response;
@@ -29,17 +27,12 @@ export default class GameSearch extends React.Component {
   }
 
   handleChange(event) {
-    // console.log('props at handleEvent', props);
     const currentSearchTerm = event.target.value;
     this.props.parentChangeSearchTerm(currentSearchTerm);
   }
 
   handlePriceFloorChange(event) {
-    // console.log('props at handlePriceFloorChange', props);
     const currentPriceFloor = event.target.value;
-    // console.log('currentPriceFloor', currentPriceFloor);
-
-    //  this.props.parentChangePriceFloor(currentPriceFloor);
     this.props.parentChangePriceFloor(currentPriceFloor);
   }
 

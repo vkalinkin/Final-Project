@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SearchResult(props) {
-  // const urlId = props.searchResult.cheapestDealID;
   const storeArray = ['Steam', 'GamersGate', 'GreenManGaming', 'Amazon', 'GameStop', 'Direct2Drive', 'GOG', 'Origin',
     'Get Games', 'Shiny Loot', 'Humble Store', 'Desura', 'Uplay', 'IndieGameStand', 'Fanatical', 'Gamesrocket',
     'Games Republic', 'SilaGames', 'Playfield', 'ImperialGames', 'WinGameStore', 'FunStockDigital',
@@ -16,9 +15,7 @@ function SearchResult(props) {
     <div className="imageHolder">
       <img className="gameImage" src={props.searchResult.thumb}></img>
     </div>
-    {/* <div>Title: {props.searchResult.external}</div> */}
     <div>Title: {props.searchResult.title}</div>
-    {/* <div>Current Best Price: ${props.searchResult.cheapest}</div> */}
     <div>Current Price: ${props.searchResult.salePrice}</div>
     <div>Normal Price: ${props.searchResult.normalPrice}</div>
     <div>Avaialbe at: {props.searchResult.storeID}</div>
@@ -29,7 +26,6 @@ function SearchResult(props) {
 }
 
 const ResultsList = ({ results }) => {
-  // console.log('results', results);
   if (!results) {
     return <div>LOADING</div>;
   }
@@ -42,7 +38,6 @@ const ResultsList = ({ results }) => {
       }
     </div>
   );
-
 };
 
 export default ResultsList;
