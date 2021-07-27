@@ -6,6 +6,7 @@ export default class GameSearch extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePriceFloorChange = this.handlePriceFloorChange.bind(this);
+    this.handlePriceCeilingChange = this.handlePriceCeilingChange.bind(this);
   }
 
   fetchReq() {
@@ -36,12 +37,18 @@ export default class GameSearch extends React.Component {
     this.props.parentChangePriceFloor(currentPriceFloor);
   }
 
+  handlePriceCeilingChange(event) {
+    const currentPriceCeiling = event.target.value;
+    this.props.parentChangePriceCeiling(currentPriceCeiling);
+  }
+
   handleSubmit(event) {
     this.fetchReq();
     event.preventDefault();
   }
 
   render() {
+    // console.log('this.props', this.props);
     return (
       <div className="container">
         <div className="header">
@@ -63,6 +70,10 @@ export default class GameSearch extends React.Component {
           <div className = "row">
             <label htmlFor="priceFloorBox">Minimum Price:</label>
             <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
+          </div>
+          <div className="row">
+            <label htmlFor="priceCeilingBox">Maximum Price:</label>
+            <input type="number" id="priceCeilingBox" value={this.props.parentPriceCeiling} onChange={this.handlePriceCeilingChange}></input>
           </div>
           <div className = "row">
             <button>SEARCH</button>

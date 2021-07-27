@@ -10,11 +10,13 @@ export default class App extends React.Component {
     this.changeSearchTerm = this.changeSearchTerm.bind(this);
     this.changeResultsArray = this.changeResultsArray.bind(this);
     this.changePriceFloor = this.changePriceFloor.bind(this);
+    this.changePriceCeiling = this.changePriceCeiling.bind(this);
 
     this.state = {
       route: parseRoute(window.location.hash),
       searchTerm: '',
       priceFloor: '',
+      priceCeiling: '',
       resultsArray: [],
       isLoading: true
     };
@@ -35,11 +37,13 @@ export default class App extends React.Component {
     }
     if (route.path === 'gameSearch') {
       return <GameSearch parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading} parentChangeResultsArray={this.changeResultsArray}
-      parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor}/>;
+      parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling}
+        parentChangePriceCeiling={this.changePriceCeiling}/>;
     }
     if (route.path === 'gameSearchResults') {
       return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading}
-        parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor}/>;
+        parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor}
+        parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling}/>;
     }
   }
 
@@ -61,6 +65,10 @@ export default class App extends React.Component {
 
   changePriceFloor(newPriceFloor) {
     this.setState({ priceFloor: newPriceFloor });
+  }
+
+  changePriceCeiling(newPriceCeiling) {
+    this.setState({ priceCeiling: newPriceCeiling });
   }
 
 }
