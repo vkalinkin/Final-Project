@@ -69,7 +69,7 @@ export default class GameSearch extends React.Component {
           </div>
           <div>
             <label htmlFor="priceFloorBox">Minimum Price:</label>
-            <input type="text" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
+            <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
           </div>
 
           <button>SEARCH</button>
