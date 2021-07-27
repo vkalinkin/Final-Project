@@ -10,6 +10,12 @@
   margin-right: auto;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .header {
   text-align: center;
 }
@@ -49,8 +55,9 @@
 }
 
 .gameSearchForm {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+
+  /* justify-content: center; */
 }
 
 .resultsList {

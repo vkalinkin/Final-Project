@@ -63,16 +63,18 @@ export default class GameSearch extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit} className= "gameSearchForm">
 
-          <div>
+          <div className = "row">
             <label htmlFor="nameSearchBox">Name:</label>
             <input type="text" id="nameSearchBox" value={this.props.parentSearchTerm} onChange={this.handleChange}></input>
           </div>
-          <div>
+          <div className = "row">
             <label htmlFor="priceFloorBox">Minimum Price:</label>
             <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
           </div>
+          <div className = "row">
+            <button>SEARCH</button>
+          </div>
 
-          <button>SEARCH</button>
         </form>
         <div>
 
