@@ -1,31 +1,36 @@
-// import { response } from 'express';
 import React from 'react';
-import ResultsList from './resultsOutput';
-// import { render } from 'react-dom';
 
 export default class GameSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchTerm: '', testSearch: 'street fighter', resultsArray: [], isLoading: true };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   fetchReq() {
-    fetch('https://www.cheapshark.com/api/1.0/games?title=' + this.state.searchTerm)
-      .then(response => response.json())
-      .then(data => this.setState({ resultsArray: data, isLoading: false }));
-    // console.log("results array results", this.state.resultsArray);
+    fetch('https://www.cheapshark.com/api/1.0/games?title=' + this.props.parentSearchTerm)
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response;
+        }
+      })
+      .then(data => this.props.parentChangeResultsArray(data));
+    this.goToResults();
 
+  }
+
+  goToResults() {
+    window.location.hash = 'gameSearchResults';
   }
 
   handleChange(event) {
-    this.setState({ searchTerm: event.target.value });
+    const currentSearchTerm = event.target.value;
+    this.props.parentChangeSearchTerm(currentSearchTerm);
   }
 
   handleSubmit(event) {
-    // eslint-disable-next-line no-console
-    console.log('Term entered:', this.state.searchTerm);
     this.fetchReq();
     event.preventDefault();
   }
@@ -33,21 +38,25 @@ export default class GameSearch extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Frugal Frames</h1>
-        <h2>Find deals on digital PC games!</h2>
-        <div className="topOptions">
-          <h3>Find:</h3>
-          <h3>GAMES</h3>
-          <h3>STORES</h3>
+        <div className="header">
+          <h1>Frugal Frames</h1>
+          <h2>Find deals on digital PC games!</h2>
         </div>
-        <h1>Temp: On Game Search Page</h1>
-        <a href="#">go back to home</a>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.searchTerm} onChange={this.handleChange}></input>
-          <button>SEARCH</button>
+
+        <div className="topOptions">
+          <h3 className="find">Find: </h3>
+          <a className="topButton">GAMES</a>
+          <a className="topButton">STORES</a>
+        </div>
+        <form onSubmit={this.handleSubmit} className= "gameSearchForm">
+          <div>
+            <input type="text" value={this.props.parentSearchTerm} onChange={this.handleChange}></input>
+            <button>SEARCH</button>
+          </div>
+
         </form>
         <div>
-          {this.state.isLoading ? 'isLoading' : <ResultsList results={this.state.resultsArray}></ResultsList>}
+
         </div>
       </div>
     );

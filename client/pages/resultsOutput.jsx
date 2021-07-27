@@ -1,27 +1,33 @@
 import React from 'react';
 
 function SearchResult(props) {
-  return <div>
-    <img src={props.searchResult.thumb}></img>
+  const urlId = props.searchResult.cheapestDealID;
+  const purchaseURL = `https://www.cheapshark.com/redirect?dealID=${urlId}`;
+  return <div className="resultBox">
+    <div className="imageHolder">
+      <img className="gameImage" src={props.searchResult.thumb}></img>
+    </div>
     <div>Title: {props.searchResult.external}</div>
-    <div>{props.searchResult.internalName}</div>
-    <div>Cheapest price: {props.searchResult.cheapest}</div>
-    <div>https://www.cheapshark.com/redirect?dealID={props.searchResult.cheapestDealID}</div>
-    <div>---------</div>
+    <div>Current Best Price: ${props.searchResult.cheapest}</div>
+    <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
   </div>;
 }
 
-function ResultsList(props) {
-  // console.log("props in resultsOutput", props);
+const ResultsList = ({ results }) => {
+  // console.log('results', results);
+  if (!results) {
+    return <div>LOADING</div>;
+  }
   return (
-    <ul>
+    <div className="resultsList">
       {
-        props.results.map(results => {
+        results.map(results => {
           return <SearchResult key={results.external} searchResult={results} />;
         })
       }
-    </ul>
+    </div>
   );
-}
+
+};
 
 export default ResultsList;
