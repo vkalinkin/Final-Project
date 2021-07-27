@@ -10,6 +10,12 @@
   margin-right: auto;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .header {
   text-align: center;
 }
@@ -46,11 +52,6 @@
 .buttonText {
   background-color: white;
   color: black;
-}
-
-.gameSearchForm {
-  display: flex;
-  justify-content: center;
 }
 
 .resultsList {

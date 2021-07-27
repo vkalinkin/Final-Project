@@ -5,10 +5,11 @@ export default class GameSearch extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePriceFloorChange = this.handlePriceFloorChange.bind(this);
   }
 
   fetchReq() {
-    fetch('https://www.cheapshark.com/api/1.0/games?title=' + this.props.parentSearchTerm)
+    fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -30,6 +31,11 @@ export default class GameSearch extends React.Component {
     this.props.parentChangeSearchTerm(currentSearchTerm);
   }
 
+  handlePriceFloorChange(event) {
+    const currentPriceFloor = event.target.value;
+    this.props.parentChangePriceFloor(currentPriceFloor);
+  }
+
   handleSubmit(event) {
     this.fetchReq();
     event.preventDefault();
@@ -49,8 +55,16 @@ export default class GameSearch extends React.Component {
           <a className="topButton">STORES</a>
         </div>
         <form onSubmit={this.handleSubmit} className= "gameSearchForm">
-          <div>
-            <input type="text" value={this.props.parentSearchTerm} onChange={this.handleChange}></input>
+
+          <div className = "row">
+            <label htmlFor="nameSearchBox">Name:</label>
+            <input type="text" id="nameSearchBox" value={this.props.parentSearchTerm} onChange={this.handleChange}></input>
+          </div>
+          <div className = "row">
+            <label htmlFor="priceFloorBox">Minimum Price:</label>
+            <input type="number" id="priceFloorBox" value={this.props.parentPriceFloor} onChange={this.handlePriceFloorChange}></input>
+          </div>
+          <div className = "row">
             <button>SEARCH</button>
           </div>
 

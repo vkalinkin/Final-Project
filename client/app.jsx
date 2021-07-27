@@ -9,9 +9,12 @@ export default class App extends React.Component {
     super(props);
     this.changeSearchTerm = this.changeSearchTerm.bind(this);
     this.changeResultsArray = this.changeResultsArray.bind(this);
+    this.changePriceFloor = this.changePriceFloor.bind(this);
+
     this.state = {
       route: parseRoute(window.location.hash),
       searchTerm: '',
+      priceFloor: '',
       resultsArray: [],
       isLoading: true
     };
@@ -20,6 +23,7 @@ export default class App extends React.Component {
   componentDidMount() {
     window.addEventListener('hashchange', () => {
       const route = parseRoute(window.location.hash);
+
       this.setState({ route: route });
     });
   }
@@ -30,12 +34,13 @@ export default class App extends React.Component {
       return <Home />;
     }
     if (route.path === 'gameSearch') {
-      return <GameSearch parentSearchTerm = {this.state.searchTerm} parentResultsArray = {this.state.resultsArray} parentIsLoading = {this.state.isLoading} parentChangeResultsArray = {this.changeResultsArray} parentChangeSearchTerm = {this.changeSearchTerm} />;
+      return <GameSearch parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading} parentChangeResultsArray={this.changeResultsArray}
+      parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor}/>;
     }
     if (route.path === 'gameSearchResults') {
-      return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading} parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} />;
+      return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading}
+        parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor}/>;
     }
-    // return <NotFound />;
   }
 
   render() {
@@ -53,4 +58,9 @@ export default class App extends React.Component {
   changeResultsArray(newResultsArray) {
     this.setState({ resultsArray: newResultsArray, isLoading: false });
   }
+
+  changePriceFloor(newPriceFloor) {
+    this.setState({ priceFloor: newPriceFloor });
+  }
+
 }
