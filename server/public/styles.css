@@ -1,0 +1,77 @@
+* {
+  background-color: #292929;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.topOptions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.topButton {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  width: 80px;
+  height: 23px;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.5s;
+}
+
+.topButton:hover {
+  background-color: #1ef4e7;
+  color: black;
+}
+
+.find {
+  margin-top: 0;
+}
+
+.buttonText {
+  background-color: white;
+  color: black;
+}
+
+.gameSearchForm {
+  display: flex;
+  justify-content: center;
+}
+
+.resultsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.resultBox {
+  width: calc(25%);
+}
+
+.gameImage {
+  max-width: 120px;
+}
+
+.imageHolder {
+  width: 120px;
+  height: 171px;
+  background-color: rgb(135, 138, 138);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
