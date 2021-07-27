@@ -64,16 +64,10 @@ export default class App extends React.Component {
   }
 
   changePriceFloor(newPriceFloor) {
-    // if (!newPriceFloor){
-    //   newPriceFloor = '0';
-    // }
     this.setState({ priceFloor: newPriceFloor });
   }
 
   changePriceCeiling(newPriceCeiling) {
-    // if (!newPriceCeiling) {
-    //   newPriceCeiling = '60';
-    // }
     this.setState({ priceCeiling: newPriceCeiling });
   }
 

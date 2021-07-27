@@ -23,14 +23,9 @@ export default class GameSearch extends React.Component {
     } else {
       priceCeiling = this.props.parentPriceCeiling;
     }
-    // const fetchURL = 'https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + '&upperPrice=' + this.props.parentPriceCeiling;
+
     const fetchURL = 'https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + priceFloor + '&upperPrice=' + priceCeiling;
-
-    // fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + '&upperPrice=' + this.props.parentChangePriceCeiling)
-    // fetch('https://www.cheapshark.com/api/1.0/deals?title=' + this.props.parentSearchTerm + '&lowerPrice=' + this.props.parentPriceFloor + 'upperPrice=' + this.props.parentPriceCeiling)
-    // console.log('fetchURL', fetchURL);
     fetch(fetchURL)
-
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -63,18 +58,11 @@ export default class GameSearch extends React.Component {
   }
 
   handleSubmit(event) {
-    // if (!this.props.parentPriceFloor){
-    //   this.props.parentChangePriceFloor();
-    // }
-    // if (!this.props.parentPriceCeiling) {
-    //   this.props.parentChangePriceCeiling(60);
-    // }
     this.fetchReq();
     event.preventDefault();
   }
 
   render() {
-    // console.log('this.props', this.props);
     return (
       <div className="container">
         <div className="header">
