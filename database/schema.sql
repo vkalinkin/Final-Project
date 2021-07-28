@@ -19,13 +19,16 @@ CREATE TABLE "users" (
 
 
 
-CREATE TABLE "games" (
+CREATE TABLE "favorites" (
 	"gameID" integer NOT NULL,
-	"targetPrice" integer NOT NULL,
-	"salePrice" integer NOT NULL,
-	"dealID" TEXT NOT NULL,
 	"userID" integer NOT NULL,
-	CONSTRAINT "games_pk" PRIMARY KEY ("dealID")
+	"currentPrice" integer NOT NULL,
+	"dealID" TEXT NOT NULL,
+	"gameTitle" TEXT NOT NULL,
+	"storeID" integer NOT NULL,
+	"gameImage" TEXT NOT NULL,
+	"favoriteID" serial NOT NULL,
+	CONSTRAINT "favorites_pk" PRIMARY KEY ("favoriteID")
 ) WITH (
   OIDS=FALSE
 );
@@ -33,4 +36,4 @@ CREATE TABLE "games" (
 
 
 
-ALTER TABLE "games" ADD CONSTRAINT "games_fk0" FOREIGN KEY ("userID") REFERENCES "users"("userID");
+ALTER TABLE "favorites" ADD CONSTRAINT "favorites_fk0" FOREIGN KEY ("userID") REFERENCES "users"("userID");
