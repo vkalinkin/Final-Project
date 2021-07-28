@@ -1,11 +1,30 @@
 import React from 'react';
 
 export default class MyList extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      myList: []
+    };
+  }
+
+  componentDidMount() {
+    this.testDB();
+  }
+
+  testDB() {
+    fetch('/api/list')
+      .then(res => res.json())
+      .then(list => {
+        this.setState({ myList: list });
+        // console.log('List:', list);
+      });
+  }
 
   render() {
+    // console.log("this.state", this.state);
+
     return (
       <div className="container">
         <div className="header">
