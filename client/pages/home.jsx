@@ -2,6 +2,14 @@ import React from 'react';
 
 export default class Home extends React.Component {
 
+  // testDB() {
+  //   fetch('/api/list')
+  //     .then(res => res.json())
+  //     .then(todos => {
+  //       console.log('List:', list);
+  //     })
+  // }
+
   render() {
     return (
       <div className="container">

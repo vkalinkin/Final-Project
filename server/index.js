@@ -1,11 +1,18 @@
 require('dotenv/config');
 const express = require('express');
 const errorMiddleware = require('./error-middleware');
+const jsonMiddleware = express.json();
 const staticMiddleware = require('./static-middleware');
 
 const app = express();
 
 app.use(staticMiddleware);
+
+app.use(jsonMiddleware);
+
+app.get('/api/list', (req, res) => {
+  res.json({ test: 'This is a test!' });
+});
 
 app.use(errorMiddleware);
 

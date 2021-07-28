@@ -26,6 +26,7 @@ function SearchResult(props) {
 }
 
 const ResultsList = ({ results }) => {
+  // console.log(results);
   if (!results) {
     return <div>LOADING</div>;
   }
