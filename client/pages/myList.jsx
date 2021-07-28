@@ -1,17 +1,8 @@
 import React from 'react';
 
-export default class Home extends React.Component {
-
-  // componentDidMount() {
-  //   this.testDB();
-  // }
-
-  // testDB() {
-  //   fetch('/api/list')
-  //     .then(res => res.json())
-  //     .then(list => {
-  //       console.log('List:', list);
-  //     })
+export default class MyList extends React.Component {
+  // constructor(props) {
+  //   super(props);
   // }
 
   render() {

@@ -1,4 +1,5 @@
 require('dotenv/config');
+// const pg = require('pg');
 const express = require('express');
 const errorMiddleware = require('./error-middleware');
 const jsonMiddleware = express.json();
@@ -11,7 +12,7 @@ app.use(staticMiddleware);
 app.use(jsonMiddleware);
 
 app.get('/api/list', (req, res) => {
-  res.json({ test: 'This is a test!' });
+  res.json({ list: 'This is a test!' });
 });
 
 app.use(errorMiddleware);

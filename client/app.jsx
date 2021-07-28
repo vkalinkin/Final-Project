@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/home';
 import GameSearch from './pages/gameSearch';
 import GameSearchResults from './pages/gameSearchResults';
+import MyList from './pages/myList';
 import parseRoute from './lib/parse-route';
 
 export default class App extends React.Component {
@@ -44,6 +45,9 @@ export default class App extends React.Component {
       return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading}
         parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor}
         parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling}/>;
+    }
+    if (route.path === 'myList') {
+      return <MyList></MyList>;
     }
   }
 
