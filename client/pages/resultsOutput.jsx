@@ -18,7 +18,7 @@ function SearchResult(props) {
     <div>Title: {props.searchResult.title}</div>
     <div>Current Price: ${props.searchResult.salePrice}</div>
     <div>Normal Price: ${props.searchResult.normalPrice}</div>
-    <div>Avaialbe at: {props.searchResult.storeID}</div>
+    {/* <div>Avaialbe at: {props.searchResult.storeID}</div> */}
     <div>Avaialbe at: {currentStoreName}</div>
 
     <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
