@@ -1,4 +1,5 @@
 import React from 'react';
+import FaveList from './faveOutput';
 
 export default class MyList extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class MyList extends React.Component {
   render() {
     // console.log("this.state", this.state);
 
-    const { list } = this.state;
+    // const { list } = this.state;
 
     return (
       <div className="container">
@@ -39,15 +40,10 @@ export default class MyList extends React.Component {
           <a href="#myList" className="topButton">MY LIST</a>
         </div>
         <div>
-          {
-            list.map(list => (
-              <div key={list.gameID}>
-                <div>{list.gameID}</div>
-                <div>{list.dealID}</div>
-              </div>
-            ))
-          }
+          <FaveList results={this.state.list}></FaveList>
+
         </div>
+
       </div>
     );
   }

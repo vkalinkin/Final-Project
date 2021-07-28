@@ -20,8 +20,8 @@ app.use(jsonMiddleware);
 app.get('/api/list', (req, res) => {
   const sql = `
   select
-    "gameID", "targetPrice", "salePrice", "dealID", "userID"
-  from "games"
+    "gameID", "currentPrice", "dealID", "userID", "storeID", "gameImage", "favoriteID", "gameTitle"
+  from "favorites"
   join "users" using ("userID");
   `;
 
