@@ -78,9 +78,45 @@ export default class App extends React.Component {
   }
 
   starClick(event) {
-    // console.log('target', event.target.getAttribute(gametitle));
     // console.log('gametitle:', event.target.attributes.gametitle);
     // console.log('currentprice:', event.target.attributes.currentprice);
+    // console.log('storeid:', event.target.attributes.storeid);
+    // console.log('dealid:', event.target.attributes.dealid);
+    // console.log('userid:', event.target.attributes.userid);
+    // console.log('gameimage:', event.target.attributes.gameimage);
+
+    // console.log('gametitle: 2', event.target.getAttribute('gametitle'));
+
+    const gameTitle = event.target.getAttribute('gametitle');
+    const currentPrice = event.target.getAttribute('currentprice');
+    const storeID = event.target.getAttribute('storeid');
+    const dealID = event.target.getAttribute('dealid');
+    const userID = event.target.getAttribute('userid');
+    const gameImage = event.target.getAttribute('gameimage');
+    const gameID = event.target.getAttribute('gameid');
+
+    // console.log('GameTitle const:', gameTitle);
+    // console.log('currentPrice const:', currentPrice);
+
+    fetch('/api/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        gameImage: gameImage,
+        gameTitle: gameTitle,
+        currentPrice: currentPrice,
+        storeID: storeID,
+        dealID: dealID,
+        gameID: gameID,
+        userID: userID
+      })
+    })
+      .then(res => res.json());
+    // .then(list => {
+    //   console.log('List:', list);
+    // });
 
   }
 

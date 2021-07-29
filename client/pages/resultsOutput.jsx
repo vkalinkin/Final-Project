@@ -27,7 +27,7 @@ function SearchResult(props) {
 
     <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
     <div>
-      <i className="fas fa-star" onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid = "1"></i>
+      <i className="fas fa-star" onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid="1" gameimage={props.searchResult.thumb} gameid={props.searchResult.gameID} ></i>
     </div>
   </div>;
 }
@@ -52,7 +52,8 @@ const ResultsList = props => {
           // console.log('props in ResultList 2', props);
 
           // return <SearchResult key={results.dealID} searchResult={results} starClick={props.starClick}/>;
-          return <SearchResult key={props.results.dealID} searchResult={results} starClick={props.starClick} />;
+          // return <SearchResult key={props.results.dealID} searchResult={results} starClick={props.starClick} />;
+          return <SearchResult key={results.dealID} searchResult={results} starClick={props.starClick} />;
 
         })
       }

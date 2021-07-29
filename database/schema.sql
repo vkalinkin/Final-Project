@@ -22,7 +22,7 @@ CREATE TABLE "users" (
 CREATE TABLE "favorites" (
 	"gameID" integer NOT NULL,
 	"userID" integer NOT NULL,
-	"currentPrice" integer NOT NULL,
+	"currentPrice" decimal NOT NULL,
 	"dealID" TEXT NOT NULL,
 	"gameTitle" TEXT NOT NULL,
 	"storeID" integer NOT NULL,
