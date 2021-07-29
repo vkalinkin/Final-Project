@@ -10,6 +10,10 @@ function SearchResult(props) {
   const currentStoreId = (props.searchResult.storeID) - 1;
   const currentStoreName = storeArray[currentStoreId];
 
+  // function handleStarClick(event){
+  //   this.props.parentHandleClick()
+  // }
+
   const urlId = props.searchResult.dealID;
   const purchaseURL = `https://www.cheapshark.com/redirect?dealID=${urlId}`;
   return <div className="resultBox">

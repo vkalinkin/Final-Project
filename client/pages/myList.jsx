@@ -4,11 +4,16 @@ import FaveList from './faveOutput';
 export default class MyList extends React.Component {
   constructor(props) {
     super(props);
+    // this.handleStarClick = this.handleStarClick.bind(this);
 
     this.state = {
       list: []
     };
   }
+
+  // handleStarClick() {
+  //   console.log('target', event.target.getAttribute(gameTitle));
+  // };
 
   componentDidMount() {
     this.testDB();
@@ -40,7 +45,7 @@ export default class MyList extends React.Component {
           <a href="#myList" className="topButton">MY LIST</a>
         </div>
         <div>
-          <FaveList results={this.state.list}></FaveList>
+          <FaveList results={this.state.list} starClick={this.starClick}></FaveList>
 
         </div>
 

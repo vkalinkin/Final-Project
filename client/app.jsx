@@ -13,6 +13,8 @@ export default class App extends React.Component {
     this.changePriceFloor = this.changePriceFloor.bind(this);
     this.changePriceCeiling = this.changePriceCeiling.bind(this);
 
+    this.starClick = this.starClick.bind(this);
+
     this.state = {
       route: parseRoute(window.location.hash),
       searchTerm: '',
@@ -44,7 +46,7 @@ export default class App extends React.Component {
     if (route.path === 'gameSearchResults') {
       return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading}
         parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor}
-        parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling}/>;
+        parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling} starClick={this.starClick}/>;
     }
     if (route.path === 'myList') {
       return <MyList></MyList>;
@@ -73,6 +75,13 @@ export default class App extends React.Component {
 
   changePriceCeiling(newPriceCeiling) {
     this.setState({ priceCeiling: newPriceCeiling });
+  }
+
+  starClick(event) {
+    // console.log('target', event.target.getAttribute(gametitle));
+    // console.log('gametitle:', event.target.attributes.gametitle);
+    // console.log('currentprice:', event.target.attributes.currentprice);
+
   }
 
 }

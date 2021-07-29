@@ -2,6 +2,7 @@ import React from 'react';
 import ResultsList from './resultsOutput';
 
 function GameSearchResults(props) {
+  // console.log('props in GameSearchResults', props.starClick);
   return (
     <div className="container">
       <div className="header">
@@ -16,7 +17,9 @@ function GameSearchResults(props) {
       </div>
       <a href="#gameSearch" >Go back to Search</a>
       <div>
-        <ResultsList results={props.parentResultsArray}></ResultsList>
+        {/* <ResultsList results={props.parentResultsArray} starClick={props.starClick}></ResultsList> */}
+        <ResultsList results={props.parentResultsArray} starClick={props.starClick}></ResultsList>
+
       </div>
     </div>
   );
