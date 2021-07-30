@@ -7,6 +7,21 @@ export default class GameSearch extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handlePriceFloorChange = this.handlePriceFloorChange.bind(this);
     this.handlePriceCeilingChange = this.handlePriceCeilingChange.bind(this);
+    this.fetchFaves = this.fetchFaves.bind(this);
+
+  }
+
+  fetchFaves() {
+    fetch('/api/faveids')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw response;
+        }
+      })
+      .then(data => this.props.parentChangeFavesArray(data));
+    // .then(data => console.log('data from fetchFaves', data));
   }
 
   fetchReq() {
@@ -58,12 +73,12 @@ export default class GameSearch extends React.Component {
   }
 
   handleSubmit(event) {
+    this.fetchFaves();
     this.fetchReq();
     event.preventDefault();
   }
 
   render() {
-    // console.log('props:', this.props);
     return (
       <div className="container">
         <div className="header">

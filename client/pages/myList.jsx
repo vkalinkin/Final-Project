@@ -4,35 +4,24 @@ import FaveList from './faveOutput';
 export default class MyList extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleStarClick = this.handleStarClick.bind(this);
-
     this.state = {
       list: []
     };
   }
 
-  // handleStarClick() {
-  //   console.log('target', event.target.getAttribute(gameTitle));
-  // };
-
   componentDidMount() {
-    this.testDB();
+    this.getFavorites();
   }
 
-  testDB() {
+  getFavorites() {
     fetch('/api/list')
       .then(res => res.json())
       .then(list => {
         this.setState({ list: list });
-        // console.log('List:', list);
       });
   }
 
   render() {
-    // console.log("this.state", this.state);
-
-    // const { list } = this.state;
-
     return (
       <div className="container">
         <div className="header">

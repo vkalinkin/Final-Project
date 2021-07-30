@@ -12,8 +12,11 @@ export default class App extends React.Component {
     this.changeResultsArray = this.changeResultsArray.bind(this);
     this.changePriceFloor = this.changePriceFloor.bind(this);
     this.changePriceCeiling = this.changePriceCeiling.bind(this);
+    this.changeFavesArray = this.changeFavesArray.bind(this);
 
     this.starClick = this.starClick.bind(this);
+
+    this.getFaves = this.getFaves.bind(this);
 
     this.state = {
       route: parseRoute(window.location.hash),
@@ -21,6 +24,7 @@ export default class App extends React.Component {
       priceFloor: '0',
       priceCeiling: '60',
       resultsArray: [],
+      faveIDs: [],
       isLoading: true
     };
   }
@@ -41,12 +45,13 @@ export default class App extends React.Component {
     if (route.path === 'gameSearch') {
       return <GameSearch parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading} parentChangeResultsArray={this.changeResultsArray}
       parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor} parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling}
-        parentChangePriceCeiling={this.changePriceCeiling}/>;
+        parentChangePriceCeiling={this.changePriceCeiling} parentChangeFavesArray={this.changeFavesArray} parentFaveIDs={this.state.faveIDs} getFaves={this.getFaves}/>;
     }
     if (route.path === 'gameSearchResults') {
       return <GameSearchResults parentSearchTerm={this.state.searchTerm} parentResultsArray={this.state.resultsArray} parentIsLoading={this.state.isLoading}
         parentChangeResultsArray={this.changeResultsArray} parentChangeSearchTerm={this.changeSearchTerm} parentPriceFloor={this.state.priceFloor}
-        parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling} starClick={this.starClick}/>;
+        parentChangePriceFloor={this.changePriceFloor} parentPriceCeiling={this.state.priceCeiling} parentChangePriceCeiling={this.changePriceCeiling} starClick={this.starClick}
+        parentChangeFavesArray={this.changeFavesArray} parentFaveIDs={this.state.faveIDs} getFaves={this.getFaves}/>;
     }
     if (route.path === 'myList') {
       return <MyList></MyList>;
@@ -77,16 +82,11 @@ export default class App extends React.Component {
     this.setState({ priceCeiling: newPriceCeiling });
   }
 
+  changeFavesArray(newFavesArray) {
+    this.setState({ faveIDs: newFavesArray });
+  }
+
   starClick(event) {
-    // console.log('gametitle:', event.target.attributes.gametitle);
-    // console.log('currentprice:', event.target.attributes.currentprice);
-    // console.log('storeid:', event.target.attributes.storeid);
-    // console.log('dealid:', event.target.attributes.dealid);
-    // console.log('userid:', event.target.attributes.userid);
-    // console.log('gameimage:', event.target.attributes.gameimage);
-
-    // console.log('gametitle: 2', event.target.getAttribute('gametitle'));
-
     const gameTitle = event.target.getAttribute('gametitle');
     const currentPrice = event.target.getAttribute('currentprice');
     const storeID = event.target.getAttribute('storeid');
@@ -94,9 +94,6 @@ export default class App extends React.Component {
     const userID = event.target.getAttribute('userid');
     const gameImage = event.target.getAttribute('gameimage');
     const gameID = event.target.getAttribute('gameid');
-
-    // console.log('GameTitle const:', gameTitle);
-    // console.log('currentPrice const:', currentPrice);
 
     fetch('/api/add', {
       method: 'POST',
@@ -114,10 +111,15 @@ export default class App extends React.Component {
       })
     })
       .then(res => res.json());
-    // .then(list => {
-    //   console.log('List:', list);
-    // });
+    this.getFaves();
+  }
 
+  getFaves() {
+    fetch('/api/list')
+      .then(res => res.json())
+      .then(faveIDs => {
+        this.setState({ faveIDs: faveIDs });
+      });
   }
 
 }

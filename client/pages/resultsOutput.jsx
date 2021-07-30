@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SearchResult(props) {
-  // console.log('props on Search Results', props);
   const storeArray = ['Steam', 'GamersGate', 'GreenManGaming', 'Amazon', 'GameStop', 'Direct2Drive', 'GOG', 'Origin',
     'Get Games', 'Shiny Loot', 'Humble Store', 'Desura', 'Uplay', 'IndieGameStand', 'Fanatical', 'Gamesrocket',
     'Games Republic', 'SilaGames', 'Playfield', 'ImperialGames', 'WinGameStore', 'FunStockDigital',
@@ -13,7 +12,14 @@ function SearchResult(props) {
   const urlId = props.searchResult.dealID;
   const purchaseURL = `https://www.cheapshark.com/redirect?dealID=${urlId}`;
 
-  // console.log('props', props);
+  let starClassName = 'far fa-star';
+  const faveArray = props.faves;
+
+  for (let a = 0; a < faveArray.length; a++) {
+    if (props.searchResult.dealID === faveArray[a].dealID) {
+      starClassName = 'fas fa-star';
+    }
+  }
 
   return <div className="resultBox">
     <div className="imageHolder">
@@ -22,38 +28,24 @@ function SearchResult(props) {
     <div>Title: {props.searchResult.title}</div>
     <div>Current Price: ${props.searchResult.salePrice}</div>
     <div>Normal Price: ${props.searchResult.normalPrice}</div>
-    {/* <div>Avaialbe at: {props.searchResult.storeID}</div> */}
     <div>Avaialbe at: {currentStoreName}</div>
-
     <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
     <div>
-      <i className="fas fa-star" onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid="1" gameimage={props.searchResult.thumb} gameid={props.searchResult.gameID} ></i>
+      <i className={starClassName} onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid="1" gameimage={props.searchResult.thumb} gameid={props.searchResult.gameID} ></i>
     </div>
   </div>;
 }
 
-// const ResultsList = (results) => {
 const ResultsList = props => {
-
-  // function ResultsList(props, results){
-  // console.log('RESULTS', props);
-  // console.log('props in ResultList', props);
-  // console.log(parentHandleClick);
-
   if (!props.results) {
     return <div>LOADING</div>;
   }
   return (
     <div className="resultsList">
       {
-        // results.map(results => {
         props.results.map(results => {
 
-          // console.log('props in ResultList 2', props);
-
-          // return <SearchResult key={results.dealID} searchResult={results} starClick={props.starClick}/>;
-          // return <SearchResult key={props.results.dealID} searchResult={results} starClick={props.starClick} />;
-          return <SearchResult key={results.dealID} searchResult={results} starClick={props.starClick} />;
+          return <SearchResult key={results.dealID} searchResult={results} starClick={props.starClick} faves={props.faves} getFaves={props.getFaves}/>;
 
         })
       }
