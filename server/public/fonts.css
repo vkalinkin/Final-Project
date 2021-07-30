@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Teletactile";
+
+  /* src: url("../../client/pages/fonts/Teletactile-3zavL.ttf") format("truetype"); */
+  src: url("./fonts/Teletactile-3zavL.ttf") format("truetype");
+}

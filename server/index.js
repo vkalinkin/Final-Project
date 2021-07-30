@@ -1,4 +1,5 @@
 require('dotenv/config');
+
 const pg = require('pg');
 const express = require('express');
 const errorMiddleware = require('./error-middleware');

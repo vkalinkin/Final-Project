@@ -18,6 +18,13 @@
 
 .header {
   text-align: center;
+  font-family: 'Teletactile', sans-serif;
+
+  /* font-family: 'Teletactile-3zavL', sans-serif; */
+}
+
+.title {
+  font-family: 'Teletactile', sans-serif;
 }
 
 .topOptions {
