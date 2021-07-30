@@ -68,7 +68,31 @@
 }
 
 .resultBox {
-  width: calc(25%);
+  width: 225px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 370px) {
+  .resultBox {
+    width: calc(50%);
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 742px) {
+  .resultBox {
+    width: calc(100% / 3);
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .resultBox {
+    width: calc(25%);
+    padding: 10px;
+  }
 }
 
 .gameImage {
