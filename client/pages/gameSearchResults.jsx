@@ -11,12 +11,13 @@ function GameSearchResults(props) {
 
       <div className="topOptions">
         <h3 className="find">Find: </h3>
-        <a className="topButton">GAMES</a>
-        <a className="topButton">STORES</a>
+        <a href="#gameSearch" className="topButton">GAMES</a>
+        <a href="#myList" className="topButton">MY LIST</a>
       </div>
       <a href="#gameSearch" >Go back to Search</a>
       <div>
-        <ResultsList results={props.parentResultsArray}></ResultsList>
+        <ResultsList results={props.parentResultsArray} starClick={props.starClick} faves={props.parentFaveIDs} getFaves={props.getFaves}></ResultsList>
+
       </div>
     </div>
   );
