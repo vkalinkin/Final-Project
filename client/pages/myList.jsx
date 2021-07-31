@@ -31,7 +31,7 @@ export default class MyList extends React.Component {
         <div className="topOptions">
           <h3 className="find">Find: </h3>
           <a href="#gameSearch" className="topButton">GAMES</a>
-          <a href="#myList" className="topButton">MY LIST</a>
+          <a href="#myList" className="topButtonActive">MY LIST</a>
         </div>
         <div>
           <FaveList results={this.state.list} starClick={this.starClick}></FaveList>

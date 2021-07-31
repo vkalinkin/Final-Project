@@ -17,9 +17,8 @@ function SearchResult(props) {
     </div>
     <div>Title: {props.searchResult.gameTitle}</div>
     <div>Current Price: ${props.searchResult.currentPrice}</div>
-    <div>Avaialbe at: {currentStoreName}</div>
-
-    <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
+    <div className="avaialbeAt">Avaialbe at: {currentStoreName}</div>
+    <a href={purchaseURL} target="_blank" rel="noreferrer" className="purchaseButton">Purchase</a>
   </div>;
 }
 

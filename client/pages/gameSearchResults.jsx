@@ -11,7 +11,7 @@ function GameSearchResults(props) {
 
       <div className="topOptions">
         <h3 className="find">Find: </h3>
-        <a href="#gameSearch" className="topButton">GAMES</a>
+        <a href="#gameSearch" className="topButtonActive">GAMES</a>
         <a href="#myList" className="topButton">MY LIST</a>
       </div>
       <a href="#gameSearch" >Go back to Search</a>
