@@ -25,12 +25,12 @@ function SearchResult(props) {
     <div className="imageHolder">
       <img className="gameImage" src={props.searchResult.thumb}></img>
     </div>
-    <div>Title: {props.searchResult.title}</div>
-    <div>Current Price: ${props.searchResult.salePrice}</div>
-    <div>Normal Price: ${props.searchResult.normalPrice}</div>
-    <div>Avaialbe at: {currentStoreName}</div>
-    <a href={purchaseURL} target="_blank" rel="noreferrer">Purchase</a>
-    <div>
+    <div className="infoDiv">Title: {props.searchResult.title}</div>
+    <div className="infoDiv red">Current Price: ${props.searchResult.salePrice}</div>
+    <div className="infoDiv">Normal Price: ${props.searchResult.normalPrice}</div>
+    <div className="avaialbeAt">Available at: {currentStoreName}</div>
+    <a href={purchaseURL} target="_blank" rel="noreferrer" className="purchaseButton">Purchase</a>
+    <div className="starHolder">
       <i className={starClassName} onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid="1" gameimage={props.searchResult.thumb} gameid={props.searchResult.gameID} ></i>
     </div>
   </div>;

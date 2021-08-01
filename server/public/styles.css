@@ -16,18 +16,52 @@
   justify-content: center;
 }
 
+label {
+  margin-right: 10px;
+  font-size: large;
+}
+
+.searchRow {
+  margin-bottom: 10px;
+}
+
 .header {
   text-align: center;
+  font-family: 'Teletactile', sans-serif;
+
+  /* font-family: 'Teletactile-3zavL', sans-serif; */
+}
+
+.title {
+  font-family: 'Teletactile', sans-serif;
 }
 
 .topOptions {
   display: flex;
   justify-content: space-around;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .topButton {
   background-color: white;
   color: black;
+  border-radius: 5px;
+  width: 80px;
+  height: 23px;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.5s;
+}
+
+.topButtonActive {
+  background-color: #1ef4e7;
+  color: #292929;
   border-radius: 5px;
   width: 80px;
   height: 23px;
@@ -54,6 +88,12 @@
   color: black;
 }
 
+.retunLinkHolder {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: large;
+}
+
 .resultsList {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +101,71 @@
 }
 
 .resultBox {
-  width: calc(25%);
+  width: 225px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  transition: opacity 400ms;
+  font-size: large;
+  animation: slide-up 0.5s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.red {
+  color: #dc2626;
+}
+
+.searchButton {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+
+  /* width: 80px;
+  height: 23px; */
+  padding: 3px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  transition: background-color 0.5s;
+}
+
+.searchButton:hover {
+  background-color: #1ef4e7;
+  color: black;
+}
+
+@media screen and (min-width: 370px) {
+  .resultBox {
+    width: calc(50%);
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 742px) {
+  .resultBox {
+    width: calc(100% / 3);
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .resultBox {
+    width: calc(25%);
+    padding: 10px;
+  }
 }
 
 .gameImage {
@@ -75,4 +179,47 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.purchaseButton {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: background-color 0.5s;
+  font-weight: bold;
+
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
+}
+
+.purchaseButton:hover {
+  background-color: #1ef4e7;
+  color: black;
+}
+
+.infoDiv {
+  margin-bottom: 3px;
+}
+
+.avaialbeAt {
+  margin-bottom: 10px;
+}
+
+.starHolder {
+  margin-top: 10px;
+}
+
+.far {
+  transition: color 0.5s;
+}
+
+.far:hover {
+  color: #1ef4e7;
+}
+
+.fas {
+  color: #1ef4e7;
 }
