@@ -16,6 +16,15 @@
   justify-content: center;
 }
 
+label {
+  margin-right: 10px;
+  font-size: large;
+}
+
+.searchRow {
+  margin-bottom: 10px;
+}
+
 .header {
   text-align: center;
   font-family: 'Teletactile', sans-serif;
@@ -82,6 +91,7 @@
 .retunLinkHolder {
   text-align: center;
   margin-bottom: 20px;
+  font-size: large;
 }
 
 .resultsList {
@@ -95,7 +105,9 @@
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   transition: opacity 400ms;
+  font-size: large;
   animation: slide-up 0.5s ease;
 }
 
@@ -188,8 +200,12 @@
   color: black;
 }
 
+.infoDiv {
+  margin-bottom: 3px;
+}
+
 .avaialbeAt {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .starHolder {

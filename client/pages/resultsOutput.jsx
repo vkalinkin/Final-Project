@@ -25,9 +25,9 @@ function SearchResult(props) {
     <div className="imageHolder">
       <img className="gameImage" src={props.searchResult.thumb}></img>
     </div>
-    <div>Title: {props.searchResult.title}</div>
-    <div className="red">Current Price: ${props.searchResult.salePrice}</div>
-    <div>Normal Price: ${props.searchResult.normalPrice}</div>
+    <div className="infoDiv">Title: {props.searchResult.title}</div>
+    <div className="infoDiv red">Current Price: ${props.searchResult.salePrice}</div>
+    <div className="infoDiv">Normal Price: ${props.searchResult.normalPrice}</div>
     <div className="avaialbeAt">Available at: {currentStoreName}</div>
     <a href={purchaseURL} target="_blank" rel="noreferrer" className="purchaseButton">Purchase</a>
     <div className="starHolder">
