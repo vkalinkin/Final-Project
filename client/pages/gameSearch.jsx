@@ -106,7 +106,7 @@ export default class GameSearch extends React.Component {
             <input type="number" id="priceCeilingBox" value={this.props.parentPriceCeiling} onChange={this.handlePriceCeilingChange} min="1"></input>
           </div>
           <div className = "row">
-            <button>SEARCH</button>
+            <button className="searchButton">SEARCH</button>
           </div>
 
         </form>

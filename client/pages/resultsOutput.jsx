@@ -28,7 +28,7 @@ function SearchResult(props) {
     <div>Title: {props.searchResult.title}</div>
     <div className="red">Current Price: ${props.searchResult.salePrice}</div>
     <div>Normal Price: ${props.searchResult.normalPrice}</div>
-    <div className="avaialbeAt">Avaialbe at: {currentStoreName}</div>
+    <div className="avaialbeAt">Available at: {currentStoreName}</div>
     <a href={purchaseURL} target="_blank" rel="noreferrer" className="purchaseButton">Purchase</a>
     <div className="starHolder">
       <i className={starClassName} onClick={() => props.starClick(event)} gametitle={props.searchResult.title} currentprice={props.searchResult.salePrice} storeid={props.searchResult.storeID} dealid={props.searchResult.dealID} userid="1" gameimage={props.searchResult.thumb} gameid={props.searchResult.gameID} ></i>

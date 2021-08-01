@@ -14,7 +14,9 @@ function GameSearchResults(props) {
         <a href="#gameSearch" className="topButtonActive">GAMES</a>
         <a href="#myList" className="topButton">MY LIST</a>
       </div>
-      <a href="#gameSearch" >Go back to Search</a>
+      <div className="retunLinkHolder">
+        <a href="#gameSearch" className="returnLink">Return to Search Criteria</a>
+      </div>
       <div>
         <ResultsList results={props.parentResultsArray} starClick={props.starClick} faves={props.parentFaveIDs} getFaves={props.getFaves}></ResultsList>
 
