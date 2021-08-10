@@ -131,6 +131,7 @@ label {
   background-color: white;
   color: black;
   border-radius: 5px;
+  border: none;
 
   /* width: 80px;
   height: 23px; */
@@ -140,6 +141,7 @@ label {
   font-size: large;
   font-weight: bold;
   transition: background-color 0.5s;
+  cursor: pointer;
 }
 
 .searchButton:hover {
@@ -214,6 +216,7 @@ label {
 
 .far {
   transition: color 0.5s;
+  cursor: pointer;
 }
 
 .far:hover {
