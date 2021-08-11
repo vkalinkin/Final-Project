@@ -53,6 +53,8 @@ export default class GameSearch extends React.Component {
       .catch(error => {
         // eslint-disable-next-line no-console
         console.log('Fetch error:', error);
+        this.goToErrorPage();
+
       });
     this.goToResults();
 
@@ -60,6 +62,10 @@ export default class GameSearch extends React.Component {
 
   goToResults() {
     window.location.hash = 'gameSearchResults';
+  }
+
+  goToErrorPage() {
+    window.location.hash = 'errorPage';
   }
 
   handleChange(event) {
