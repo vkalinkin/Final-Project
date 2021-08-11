@@ -15,10 +15,25 @@ export default class MyList extends React.Component {
 
   getFavorites() {
     fetch('/api/list')
-      .then(res => res.json())
-      .then(list => {
-        this.setState({ list: list });
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          // throw response;
+          throw new Error('Something went wrong');
+        }
+      })
+      .then(list => this.setState({ list: list }))
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log('Fetch error:', error);
+        this.goToErrorPageMyList();
+
       });
+  }
+
+  goToErrorPageMyList() {
+    window.location.hash = 'errorPageMyList';
   }
 
   render() {
