@@ -28,8 +28,6 @@ label {
 .header {
   text-align: center;
   font-family: 'Teletactile', sans-serif;
-
-  /* font-family: 'Teletactile-3zavL', sans-serif; */
 }
 
 .title {
@@ -54,7 +52,6 @@ label {
   font-weight: bold;
   font-size: large;
   text-decoration: none;
-  display: flex;
   justify-content: center;
   transition: background-color 0.5s;
 }
@@ -69,7 +66,6 @@ label {
   font-weight: bold;
   font-size: large;
   text-decoration: none;
-  display: flex;
   justify-content: center;
   transition: background-color 0.5s;
 }
@@ -91,12 +87,9 @@ label {
 .retunLinkHolder {
   text-align: center;
   margin-bottom: 20px;
-
-  /* font-size: large; */
 }
 
 .returnLink {
-  /* font-size: large; */
   background-color: white;
   color: black;
   border-radius: 5px;
@@ -113,14 +106,10 @@ label {
 .resultsList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
 }
 
 .resultBox {
-  width: 225px;
   padding: 10px;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 10px;
   transition: opacity 400ms;
   font-size: large;
@@ -148,9 +137,6 @@ label {
   color: black;
   border-radius: 5px;
   border: none;
-
-  /* width: 80px;
-  height: 23px; */
   padding: 3px;
   margin-top: 10px;
   text-align: center;
@@ -168,21 +154,18 @@ label {
 @media screen and (min-width: 370px) {
   .resultBox {
     width: calc(50%);
-    padding: 10px;
   }
 }
 
 @media screen and (min-width: 742px) {
   .resultBox {
     width: calc(100% / 3);
-    padding: 10px;
   }
 }
 
 @media screen and (min-width: 960px) {
   .resultBox {
     width: calc(25%);
-    padding: 10px;
   }
 }
 
@@ -208,9 +191,6 @@ label {
   margin-bottom: 20px;
   transition: background-color 0.5s;
   font-weight: bold;
-
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
 }
 
 .purchaseButton:hover {
