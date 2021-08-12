@@ -91,7 +91,23 @@ label {
 .retunLinkHolder {
   text-align: center;
   margin-bottom: 20px;
-  font-size: large;
+
+  /* font-size: large; */
+}
+
+.returnLink {
+  /* font-size: large; */
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 3px;
+  text-decoration: none;
+  transition: background-color 0.5s;
+}
+
+.returnLink:hover {
+  background-color: #1ef4e7;
+  color: black;
 }
 
 .resultsList {
@@ -131,6 +147,7 @@ label {
   background-color: white;
   color: black;
   border-radius: 5px;
+  border: none;
 
   /* width: 80px;
   height: 23px; */
@@ -140,6 +157,7 @@ label {
   font-size: large;
   font-weight: bold;
   transition: background-color 0.5s;
+  cursor: pointer;
 }
 
 .searchButton:hover {
@@ -214,6 +232,7 @@ label {
 
 .far {
   transition: color 0.5s;
+  cursor: pointer;
 }
 
 .far:hover {
@@ -222,4 +241,37 @@ label {
 
 .fas {
   color: #1ef4e7;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: larger;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring::after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

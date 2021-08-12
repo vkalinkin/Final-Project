@@ -3,6 +3,8 @@ import Home from './pages/home';
 import GameSearch from './pages/gameSearch';
 import GameSearchResults from './pages/gameSearchResults';
 import MyList from './pages/myList';
+import ErrorPage from './pages/errorPage';
+import ErrorPageMyList from './pages/errorPageMyList';
 import parseRoute from './lib/parse-route';
 
 export default class App extends React.Component {
@@ -31,6 +33,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', () => {
+
       const route = parseRoute(window.location.hash);
 
       this.setState({ route: route });
@@ -55,6 +58,12 @@ export default class App extends React.Component {
     }
     if (route.path === 'myList') {
       return <MyList></MyList>;
+    }
+    if (route.path === 'errorPage') {
+      return <ErrorPage></ErrorPage>;
+    }
+    if (route.path === 'errorPageMyList') {
+      return <ErrorPageMyList></ErrorPageMyList>;
     }
   }
 

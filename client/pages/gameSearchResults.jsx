@@ -2,6 +2,7 @@ import React from 'react';
 import ResultsList from './resultsOutput';
 
 function GameSearchResults(props) {
+
   return (
     <div className="container">
       <div className="header">
@@ -18,11 +19,12 @@ function GameSearchResults(props) {
         <a href="#gameSearch" className="returnLink">Return to Search Criteria</a>
       </div>
       <div>
-        <ResultsList results={props.parentResultsArray} starClick={props.starClick} faves={props.parentFaveIDs} getFaves={props.getFaves}></ResultsList>
+        <ResultsList results={props.parentResultsArray} starClick={props.starClick} faves={props.parentFaveIDs} getFaves={props.getFaves} isLoading={props.parentIsLoading}></ResultsList>
 
       </div>
     </div>
   );
+
 }
 
 export default GameSearchResults;

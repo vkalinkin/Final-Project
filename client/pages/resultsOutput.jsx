@@ -37,8 +37,16 @@ function SearchResult(props) {
 }
 
 const ResultsList = props => {
-  if (!props.results) {
-    return <div>LOADING</div>;
+  if (props.isLoading === true) {
+    return <div>
+      <div className="lds-dual-ring"></div>
+      <div>Please wait, results are loading.</div>
+    </div>;
+  }
+  if (props.results.length === 0) {
+    return (
+      <div>No results found.</div>
+    );
   }
   return (
     <div className="resultsList">

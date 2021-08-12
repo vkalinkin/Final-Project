@@ -1,3 +1,4 @@
+/* eslint-disable node/handle-callback-err */
 import React from 'react';
 import FaveList from './faveOutput';
 
@@ -15,10 +16,22 @@ export default class MyList extends React.Component {
 
   getFavorites() {
     fetch('/api/list')
-      .then(res => res.json())
-      .then(list => {
-        this.setState({ list: list });
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .then(list => this.setState({ list: list }))
+      .catch(error => {
+        this.goToErrorPageMyList();
+
       });
+  }
+
+  goToErrorPageMyList() {
+    window.location.hash = 'errorPageMyList';
   }
 
   render() {
