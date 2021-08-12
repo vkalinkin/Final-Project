@@ -1,3 +1,4 @@
+/* eslint-disable node/handle-callback-err */
 import React from 'react';
 
 export default class GameSearch extends React.Component {
@@ -21,7 +22,6 @@ export default class GameSearch extends React.Component {
         }
       })
       .then(data => this.props.parentChangeFavesArray(data));
-    // .then(data => console.log('data from fetchFaves', data));
   }
 
   fetchReq() {
@@ -45,16 +45,12 @@ export default class GameSearch extends React.Component {
         if (response.ok) {
           return response.json();
         } else {
-          // throw response;
           throw new Error('Something went wrong');
         }
       })
       .then(data => this.props.parentChangeResultsArray(data))
       .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log('Fetch error:', error);
         this.goToErrorPage();
-
       });
     this.goToResults();
 

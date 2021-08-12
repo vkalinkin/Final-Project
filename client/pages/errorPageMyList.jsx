@@ -14,9 +14,8 @@ export default class ErrorPageMyList extends React.Component {
           <a href="#gameSearch" className="topButtonActive">GAMES</a>
           <a href="#myList" className="topButton">MY LIST</a>
         </div>
-        <div>
+        <div className="errorMessage">
           Sorry, a network error occured. Please try again later.
-
         </div>
       </div>
     );

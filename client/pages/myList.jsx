@@ -1,3 +1,4 @@
+/* eslint-disable node/handle-callback-err */
 import React from 'react';
 import FaveList from './faveOutput';
 
@@ -19,14 +20,11 @@ export default class MyList extends React.Component {
         if (response.ok) {
           return response.json();
         } else {
-          // throw response;
           throw new Error('Something went wrong');
         }
       })
       .then(list => this.setState({ list: list }))
       .catch(error => {
-        // eslint-disable-next-line no-console
-        console.log('Fetch error:', error);
         this.goToErrorPageMyList();
 
       });

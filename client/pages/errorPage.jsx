@@ -17,7 +17,7 @@ export default class ErrorPage extends React.Component {
         <div className="retunLinkHolder">
           <a href="#gameSearch" className="returnLink">Return to Search Criteria</a>
         </div>
-        <div>
+        <div className="errorMessage">
           Sorry, a network error occured. Please try again later.
 
         </div>
