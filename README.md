@@ -27,6 +27,8 @@ Try the live application at: (hhttps://frugal-frames.herokuapp.com/)
 ## Preview
 
 ![Preview of search feature](https://github.com/vkalinkin/Frugal-Frames/blob/master/server/public/images/frugalFrames1.gif)
+![Preview of save feature](https://github.com/vkalinkin/Frugal-Frames/blob/master/server/public/images/frugalFrames2.gif)
+
 
 ## Stretch Features
 
