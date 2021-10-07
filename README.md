@@ -49,8 +49,8 @@ Preview of Save Feature:
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/vkalinkin/AniArchive.git
-    cd AniArchive
+    git clone https://github.com/vkalinkin/Frugal-Frames.git
+    cd Frugal-Frames
     ```
 
 1. Open project folder in code editor.
